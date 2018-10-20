@@ -1,0 +1,11 @@
+{
+  "name": "simple-gdpr",
+  "version": "1.0.0",
+  "description": "lightweight and simple gdpr solutionn",
+  "main": "simplegdpr.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Boris Chan",
+  "license": "ISC"
+}
