@@ -126,6 +126,7 @@
   box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
   float: none;
   transition: 0.5s;
+  background-position: left;
 }
 
 .sgdpr-button-modern:hover {
@@ -253,6 +254,41 @@
   -webkit-animation-name: sgdpr-fadein;
   animation-name: sgdpr-fadein;
   animation: sgdpr-fadein 0.4s ease-out;
+}
+
+
+@keyframes sgdpr-slidein {
+  0% {
+    transform: translate3d(0, 100%, 0);
+    visibility: visible;
+    opacity: 0;
+
+  }
+
+  to {
+    transform: translateZ(0);
+    opacity: 1;
+  }
+}
+
+.sgdpr-slidein  {
+  animation: sgdpr-slidein 0.5s cubic-bezier(0.68, -0.25, 0.265, 1.28);
+}
+
+@keyframes sgdpr-slideout {
+  0% {
+    transform: translateZ(0);
+  }
+
+  to {
+    visibility: hidden;
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+.sgdpr-slideout {
+  animation: sgdpr-slideout 0.5s cubic-bezier(0.68, -0.25, 0.265, 1.28);
 }
 
 @media (max-width:961px) {

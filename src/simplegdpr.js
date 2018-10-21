@@ -14,7 +14,7 @@
     var self = this;
 
     var defaultMessage = document.createElement('span');
-    defaultMessage.innerText = 'We use browser cookies to personalize content and Ads, to provide social media features and analyse traffic. To use our site, you agree to our ';
+    defaultMessage.innerText = 'We use browser cookies to personalize content and Ads, to provide social media features and analyse traffic. To use our site, you must agree to our ';
     var defaultPolicy = document.createElement('a');
     defaultPolicy.innerText = 'Privacy Policy.';
     defaultPolicy.className = 'sgdpr-policy';
@@ -28,21 +28,18 @@
       link: null,
       icons: true,
       theme: 'light',
-      animation: true,
+      animation: 'fade',
       float: 'bottom-right',
       callback: function () {
         self.close();
       },
-      openOnInit: true,
+      openOnInit: false,
     }
     // Need to add Polyfill for IE11.
     this.opts = extend({}, defaults, options);
 
     this.init();
 
-    // Themes
-    // Dark -
-    // Clean - Minimalist w. Material Colour
   }
 
   SimpleGDPR.prototype.init = function () {
@@ -55,21 +52,40 @@
 
   SimpleGDPR.prototype.close = function () {
     var b = document.getElementById('sgdpr-box');
-    b.classList.add('sgdpr-fadeout');
-    setTimeout(function () {
-      b.style.display = 'none';
-      b.classList.remove('sgdpr-fadeout');
-    }, 500);
+
+    if (this.opts.animation === 'slide') {
+      b.classList.add('sgdpr-slideout');
+      setTimeout(function () {
+        b.style.display = 'none';
+        b.classList.remove('sgdpr-slideout');
+      }, 500);
+    } 
+    else if (this.opts.animation === 'fade' || this.opts.animation === true) {
+      b.classList.add('sgdpr-fadeout');
+      setTimeout(function () {
+        b.style.display = 'none';
+        b.classList.remove('sgdpr-fadeout');
+      }, 500);
+    }
     this.active = false;
   }
 
   SimpleGDPR.prototype.open = function () {
     var b = document.getElementById('sgdpr-box');
-    b.style.display = 'block';
-    b.classList.add('sgdpr-fadein');
-    setTimeout(function () {
-      b.classList.remove('sgdpr-fadein');
-    }, 500);
+    b.style.display = '';
+
+    if (this.opts.animation === 'slide') {
+      b.classList.add('sgdpr-slidein');
+      setTimeout(function () {
+        b.classList.remove('sgdpr-slidein');
+      }, 500);
+    } 
+    else if (this.opts.animation === 'fade' || this.opts.animation === true) {
+      b.classList.add('sgdpr-fadein');
+      setTimeout(function () {
+        b.classList.remove('sgdpr-fadein');
+      }, 500);
+    } 
     this.active = true;
   }
 
