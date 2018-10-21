@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
   <link href="normalize.css" rel="stylesheet"/>
   <link href="prism.css" rel="stylesheet"/>
-
+  <link href="table.min.css" rel="stylesheet"/>
   <link rel="stylesheet" href="site.css">
   <link rel="stylesheet" href="sgdpr-site.css">
   <title>Document</title>
@@ -178,6 +178,148 @@ import 'simplegdpr/dist/simplegdpr.css';</code></pre>
   animation: 'slide',
   float: 'bottom-left',
 });</code></pre></div>
+        </section>
+        <section class="section-message">
+          <h2 class="section-title">Custom Messages</h2>
+          <h3 class="section-subtitle">Method 1: Via Options
+          </h3>
+          <p>Passing a string into the message property in the options will replace the contents of the default message with your message.
+            If you use this method, you will not be able to use the link property. Method 2 can be used if you wish to retain this functionality.
+          </p>
+
+          <h3 class="section-subtitle">Method 2 (Recommended): DOM Element</h3>
+          <p>It may be better to pass in your own element for more control. The link property will look for any elements that contains the class sgdpr-policy, and add a href attribute with your link or a click listener if a function was passed.</p>
+          <div class="usage-container">
+            <pre><code class="language-javascript">const group = document.createElement('div');
+const message = document.createElement('span');
+const policy = document.createElement('span');
+
+message.innerText = 'My custom message! ';       
+policy.innerText = 'Privacy Policy';
+policy.classList.add('sgdpr-policy');
+
+group.appendChild(message);
+group.appendChild(policy);
+
+const notice = new SimpleGDPR({
+  message: group,
+  link: () => {
+    alert('Here are my terms!');
+  }
+});
+            </code></pre>
+            
+          </div>
+        </section>
+        <section class="section-options">
+          <h2 class="section-title">Options</h2>
+          <div class="table-container">
+            <table class="ui celled table options-table">
+              <thead>
+                <tr>
+                  <th class="two wide">Property</th>
+                  <th class="two wide">Default</th>
+                  <th class="three wide">Value</th>
+                  <th>Description</th>
+              </tr></thead>
+              <tbody>
+                <tr>
+                  <td data-label="Property" class="hl-prop">title</td>
+                  <td data-label="Default"> <span class="hl-def">"Cookies & Privacy Policy"</span></td>
+                  <td data-label="Value"> <span class="hl-var">String</span></td>
+                  <td data-label="Description">Sets the text portion of the title area in the notice box (will not replace icons).</td>
+                </tr>
+                <tr>
+                  <td data-label="Property" class="hl-prop">message</td>
+                  <td data-label="Default">
+                    <span class="hl-def">HTMLElement</span>
+                    </td>
+                  <td data-label="Value">
+                    <span class="hl-var">String</span>
+                    <span class="hl-var">HTMLElement</span></td>
+                  <td data-label="Description">Sets the message body of the notice box. The <span class="hl-def">link</span> property will not work if a String is passed to replace the message body. To retain the link property, pass in your grouping of HTMLElement with a child element(s) containing the class <span class="hl-def">sgdpr-policy</span>. See Custom Messages Method 2 for example.</td>
+                </tr>
+                <tr>
+                  <td data-label="Property" class="hl-prop">link</td>
+                  <td data-label="Default">
+                      <span class="hl-def">null</span>
+                  </td>
+                  <td data-label="Value">
+                    <span class="hl-var">String</span>
+                    <span class="hl-var">Function</span>
+                  </td>
+                  <td data-label="Description">Sets the link (or click listener if a function was passed) for any elements with the class <span class="hl-def">sgdpr-policy</span>.</td>
+              </tr>
+              <tr>
+                <td data-label="Property" class="hl-prop">callback</td>
+                <td data-label="Default">
+                    <span class="hl-def">() => { self.close() }</span>
+                </td>
+                <td data-label="Value">
+                    <span class="hl-var">Function</span></td>
+                <td data-label="Description">Sets the callback function when the button is pressed. You will need to add back the  <span class="hl-def">close()</span> method in your own implementation (for the box to close).</td>
+              </tr>
+              <tr>
+                <td data-label="Property" class="hl-prop">theme</td>
+                <td data-label="Default">
+                    <span class="hl-def">"light"</span>
+                </td>
+                <td data-label="Value">
+                    <span class="hl-var">"light"</span>
+                    <span class="hl-var">"dark"</span>
+                    <span class="hl-var">"modern"</span>
+                    <span class="hl-var">"material"</span>
+                    <span class="hl-var">null</span></td>
+                <td data-label="Description">The theme used by the notice box. You can pass in <span class="hl-def">null</span> if you do not want any classes from the built-in themes to be added.</td>
+              </tr>
+              <tr>
+                <td data-label="Property" class="hl-prop">icons</td>
+                <td data-label="Default">
+                    <span class="hl-def">true</span>
+                </td>
+                <td data-label="Value">
+                    <span class="hl-var">Boolean</span>
+                </td>
+                <td data-label="Description">Determines if the icons (info and check) are placed adjacent to the title and button. Note that in mobile mode, the check icon will replace the button regardless of this value.</td>
+              </tr>
+              <tr>
+                <td data-label="Property" class="hl-prop">animation</td>
+                <td data-label="Default">
+                    <span class="hl-def">"fade"</span>
+                </td>
+                <td data-label="Value">
+                    <span class="hl-var">"fade"</span>
+                    <span class="hl-var">"slide"</span>
+                    <span class="hl-var">null</span>
+                </td>
+                <td data-label="Description">Sets the animation for <span class="hl-def">open()</span> and <span class="hl-def">close()</span> methods. No animations will be used if <span class="hl-def">null</span> is passed.</td>
+              </tr>
+              <tr>
+                <td data-label="Property" class="hl-prop">float</td>
+                <td data-label="Default">
+                    <span class="hl-def">"bottom-right"</span>
+                </td>
+                <td data-label="Value">
+                    <span class="hl-var">"bottom-right"</span>
+                    <span class="hl-var">"bottom-left"</span>
+                    <span class="hl-var">"top-right"</span>
+                    <span class="hl-var">"top-left"</span>
+                </td>
+                <td data-label="Description">Sets the position of where the notice box will float.</td>
+              </tr>
+              <tr>
+                <td data-label="Property" class="hl-prop">openOnInit</td>
+                <td data-label="Default">
+                    <span class="hl-def">true</span>
+                </td>
+                <td data-label="Value">
+                    <span class="hl-var">Boolean</span>
+                </td>
+                <td data-label="Description">Determines if the notice box will automatically show when it is instantiated.</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
         </section>
       </div>
     </main>

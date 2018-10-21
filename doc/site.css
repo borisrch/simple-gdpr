@@ -121,3 +121,23 @@ section {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
+
+.hl-prop, .hl-def, .hl-var {
+  font-family: 'Consolas', monospace;
+  font-size: 16px;
+  /* font-weight: bold; */
+}
+
+.hl-def, .hl-var {
+  background-color: #edf1fb;
+  color: #1976D2;
+  padding: 4px 8px;
+}
+
+.hl-var {
+  display: inline;
+}
+
+.options-table {
+  line-height: 1.6;
+}
