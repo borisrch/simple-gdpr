@@ -33,7 +33,7 @@
       callback: function () {
         self.close();
       },
-      openOnInit: false,
+      openOnInit: true,
     }
     // Need to add Polyfill for IE11.
     this.opts = extend({}, defaults, options);
