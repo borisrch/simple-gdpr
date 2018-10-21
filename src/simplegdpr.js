@@ -38,12 +38,11 @@
     // Need to add Polyfill for IE11.
     this.opts = extend({}, defaults, options);
 
-    this.init();
-
+    build.call(this);
   }
 
   SimpleGDPR.prototype.init = function () {
-    build.call(this);
+    
   }
 
   SimpleGDPR.prototype.isActive = function () {
