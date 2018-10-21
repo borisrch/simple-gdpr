@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+  <link href="normalize.css" rel="stylesheet"/>
+  <link href="prism.css" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="site.css">
+  <link rel="stylesheet" href="sgdpr-site.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <header>
+      <div class="header-container">
+        <div class="header-title">SimpleGDPR.js</div>
+        <div class="header-desc">
+          A lightweight and easy to use GDPR consent plugin.
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="main-container">   
+        <section class="section-demo">
+          <h2 class="section-title">Overview</h2>
+          <div class="demo-container">
+          <div class="demo-grid">
+            <div class="demo-item demo-item-light">
+              <!--demo sgdpr box-->
+              <div class="sgdpr-box sgdpr-box-light sgdpr-demo-box">
+                <div id="sgdpr-title-container">
+                  <div class="sgdpr-info-icon" id="sgdpr-info-icon"></div>
+                  <div class="sgdpr-title" style="padding-left: 5px;">Cookies &amp; Privacy Policy</div>
+                </div>
+                <div class="sgdpr-message"><span><span>We use browser cookies to personalize content and Ads, to
+                      provide social media features and analyse traffic. To use our site, you must agree to our </span><a
+                      class="sgdpr-policy" href="./privacypolicy.html">Privacy Policy.</a></span></div><button class="sgdpr-button sgdpr-button-light"
+                  id="sgdpr-button">
+                  <div class="sgdpr-text" style="padding-right: 5px;">Agree</div>
+                  <div class="sgdpr-yes-icon"></div>
+                </button>
+              </div>
+              <!--end demo-->
+            </div>
+
+            <div class="demo-item demo-item-dark">
+              <!--demo sgdpr box-->
+              <div class="sgdpr-box sgdpr-box-dark sgdpr-demo-box-dark">
+                <div id="sgdpr-title-container">
+                  <div class="sgdpr-info-icon sgdpr-info-icon-dark" id="sgdpr-info-icon"></div>
+                  <div class="sgdpr-title" style="padding-left: 5px;">Cookies &amp; Privacy Policy</div>
+                </div>
+                <div class="sgdpr-message"><span><span>We use browser cookies to personalize content and Ads, to
+                      provide social media features and analyse traffic. To use our site, you must agree to our </span><a
+                      class="sgdpr-policy" href="./privacypolicy.html">Privacy Policy.</a></span></div><button class="sgdpr-button sgdpr-button-dark"
+                  id="sgdpr-button">
+                  <div class="sgdpr-text" style="padding-right: 5px;">Agree</div>
+                  <div class="sgdpr-yes-icon"></div>
+                </button>
+              </div>
+              <!--end demo-->
+            </div>
+            <div class="demo-item demo-item-modern">
+              <!--demo sgdpr box-->
+              <div class="sgdpr-box sgdpr-box-modern sgdpr-demo-box">
+                <div id="sgdpr-title-container">
+                  <div class="sgdpr-info-icon" id="sgdpr-info-icon"></div>
+                  <div class="sgdpr-title sgdpr-title-modern" style="padding-left: 5px;">Cookies &amp; Privacy Policy</div>
+                </div>
+                <div class="sgdpr-message"><span><span>We use browser cookies to personalize content and Ads, to
+                      provide social media features and analyse traffic. To use our site, you must agree to our </span><a
+                      class="sgdpr-policy" href="./privacypolicy.html">Privacy Policy.</a></span></div><button class="sgdpr-button sgdpr-button-modern"
+                  id="sgdpr-button">
+                  <div class="sgdpr-text" style="padding-right: 5px;">Agree</div>
+                  <div class="sgdpr-yes-icon"></div>
+                </button>
+              </div>
+              <!--end demo-->
+            </div>
+            <div class="demo-item demo-item-material">
+              <!--demo sgdpr box-->
+              <div class="sgdpr-box sgdpr-box-material sgdpr-demo-box">
+                <div id="sgdpr-title-container">
+                  <div class="sgdpr-info-icon" id="sgdpr-info-icon"></div>
+                  <div class="sgdpr-title sgdpr-title-material" style="padding-left: 5px;">Cookies &amp; Privacy Policy</div>
+                </div>
+                <div class="sgdpr-message"><span><span>We use browser cookies to personalize content and Ads, to
+                      provide social media features and analyse traffic. To use our site, you must agree to our </span><a
+                      class="sgdpr-policy" href="./privacypolicy.html">Privacy Policy.</a></span></div><button class="sgdpr-button sgdpr-button-material"
+                  id="sgdpr-button">
+                  <div class="sgdpr-text" style="padding-right: 5px;">Agree</div>
+                  <div class="sgdpr-yes-icon"></div>
+                </button>
+              </div>
+              <!--end demo-->
+            </div>
+          </div>
+        </div>
+        <div class="demo-mobile">
+            <div class="demo-item-mobile">
+              <div class="sgdpr-mobile-box-demo">
+                <span>
+                    <span>We use browser cookies to personalize content and Ads, to provide social media features and analyse traffic. To use our site, you must agree to our </span>
+                    <a class="sgdpr-policy" href="./privacypolicy.html">Privacy Policy.</a>
+                </span>
+                <button class="sgdpr-button sgdpr-button-light sgdpr-mobile-button-demo">
+                  <div class="sgdpr-yes-mobile-demo"></div>
+                </button>
+              </div>
+            </div>
+        </div>
+        </section>
+        <section class="section-features">
+          <h2 class="section-title">Features</h2>
+          <div class="section-text">
+              <p>SimpleGDPR is a lightweight and easy to use plugin for GDPR consent. It features:</p>
+              <ul>
+                <li>Simple API.</li>
+                <li>Built in themes.</li>
+                <li>Customizable via CSS.</li>
+                <li>Mobile ready.</li>
+                <li>No dependencies.</li>
+              </ul>
+              <p>In addition, the plugin comes with a predefined consent message, which can be easily changed. The built-in themes were created with UX in mind, with the goal of being clear, intuitive, and pretty.</p>   
+          </div>
+        </section>
+        <section class="section-started">
+          <h2 class="section-title">Getting Started</h2>
+          <h3 class="section-subtitle">Option 1: CDN</h3>
+          <p>Include both the script and css from the CDN in your HTML document before your own scripts:</p>
+          <pre><code class="language-markup">&lt;script src="https://unpkg.com/xxxx/dist/xxxx.js">&lt;/script>
+&lt;link href="https://unpkg.com/xxxx/dist/xxxx.css" rel="stylesheet"></code></pre>
+          <h3 class="section-subtitle">Option 2: Package Manager</h3>
+          <p>To install using npm:</p>
+          <pre><code class="language-none">npm install simplegdpr</code></pre>
+          <p>Then you can import the SimpleGDPR module and css.</p>
+          <pre><code class="language-javascript">import SimpleGDPR from 'simplegdpr';
+import 'simplegdpr/dist/simplegdpr.css';</code></pre>
+        </section>
+        <section class="section-usage">
+          <h2 class="section-title">Basic Usage</h3>
+          <p>Here’s how easy it is to get started. This is the default SimpleGDPR when given no options.</p>
+            <div class="usage-container">
+              <pre><code class="language-javascript">const notice = new SimpleGDPR();</code></pre>
+
+            </div>
+          <p>You can easily customize this behaviour by passing options (see options). In this example, we will make the notice open automatically on init. We can also execute our cookie/analytics logic and close the notice when the button is pressed. </p>
+            <div class="usage-container">
+              <pre><code class="language-javascript">const notice = new SimpleGDPR({
+  callback: () => {
+    notice.close();
+    analytics.start();
+  },
+  openOnInit: true,
+});</code></pre>
+            </div>
+          <p>In this example, we will change the title text and provide a link (or function) to our privacy policy details.</p>
+          <div class="usage-container">
+            <pre><code class="language-javascript">const notice = new SimpleGDPR({
+  title: 'This website uses cookies.',
+  link: './privacypolicy.html',
+});</code></pre>
+          </div>
+          <p>If we want to change up the styles and themes, we can also pass it in the options.</p>
+          <div class="usage-container">
+          <pre><code class="language-javascript">const notice = new SimpleGDPR({
+  theme: 'modern',
+  icons: false,
+  animation: 'slide',
+  float: 'bottom-left',
+});</code></pre></div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="prism.js"></script>
+</body>
+
+</html>
