@@ -14,7 +14,10 @@
   <link href="prism.css" rel="stylesheet"/>
   <link href="table.min.css" rel="stylesheet"/>
   <link rel="stylesheet" href="site.css">
+
+  <script src="../dist/simplegdpr.min.js"></script>
   <link rel="stylesheet" href="sgdpr-site.css">
+
   <title>Document</title>
 </head>
 
@@ -34,74 +37,18 @@
           <h2 class="section-title">Overview</h2>
           <div class="demo-container">
           <div class="demo-grid">
-            <div class="demo-item demo-item-light">
-              <!--demo sgdpr box-->
-              <div class="sgdpr-box sgdpr-box-light sgdpr-demo-box">
-                <div id="sgdpr-title-container">
-                  <div class="sgdpr-info-icon" id="sgdpr-info-icon"></div>
-                  <div class="sgdpr-title" style="padding-left: 5px;">Cookies &amp; Privacy Policy</div>
-                </div>
-                <div class="sgdpr-message"><span><span>We use browser cookies to personalize content and Ads, to
-                      provide social media features and analyse traffic. To use our site, you must agree to our </span><a
-                      class="sgdpr-policy" href="./privacypolicy.html">Privacy Policy.</a></span></div><button class="sgdpr-button sgdpr-button-light"
-                  id="sgdpr-button">
-                  <div class="sgdpr-text" style="padding-right: 5px;">Agree</div>
-                  <div class="sgdpr-yes-icon"></div>
-                </button>
-              </div>
-              <!--end demo-->
+            <div class="demo-item demo-item-light" id="demo-light">
+
             </div>
 
-            <div class="demo-item demo-item-dark">
-              <!--demo sgdpr box-->
-              <div class="sgdpr-box sgdpr-box-dark sgdpr-demo-box-dark">
-                <div id="sgdpr-title-container">
-                  <div class="sgdpr-info-icon sgdpr-info-icon-dark" id="sgdpr-info-icon"></div>
-                  <div class="sgdpr-title" style="padding-left: 5px;">Cookies &amp; Privacy Policy</div>
-                </div>
-                <div class="sgdpr-message"><span><span>We use browser cookies to personalize content and Ads, to
-                      provide social media features and analyse traffic. To use our site, you must agree to our </span><a
-                      class="sgdpr-policy" href="./privacypolicy.html">Privacy Policy.</a></span></div><button class="sgdpr-button sgdpr-button-dark"
-                  id="sgdpr-button">
-                  <div class="sgdpr-text" style="padding-right: 5px;">Agree</div>
-                  <div class="sgdpr-yes-icon"></div>
-                </button>
-              </div>
-              <!--end demo-->
+            <div class="demo-item demo-item-dark" id="demo-dark">
+
             </div>
-            <div class="demo-item demo-item-modern">
-              <!--demo sgdpr box-->
-              <div class="sgdpr-box sgdpr-box-modern sgdpr-demo-box">
-                <div id="sgdpr-title-container">
-                  <div class="sgdpr-info-icon" id="sgdpr-info-icon"></div>
-                  <div class="sgdpr-title sgdpr-title-modern" style="padding-left: 5px;">Cookies &amp; Privacy Policy</div>
-                </div>
-                <div class="sgdpr-message"><span><span>We use browser cookies to personalize content and Ads, to
-                      provide social media features and analyse traffic. To use our site, you must agree to our </span><a
-                      class="sgdpr-policy" href="./privacypolicy.html">Privacy Policy.</a></span></div><button class="sgdpr-button sgdpr-button-modern"
-                  id="sgdpr-button">
-                  <div class="sgdpr-text" style="padding-right: 5px;">Agree</div>
-                  <div class="sgdpr-yes-icon"></div>
-                </button>
-              </div>
-              <!--end demo-->
+            <div class="demo-item demo-item-modern" id="demo-modern">
+
             </div>
-            <div class="demo-item demo-item-material">
-              <!--demo sgdpr box-->
-              <div class="sgdpr-box sgdpr-box-material sgdpr-demo-box">
-                <div id="sgdpr-title-container">
-                  <div class="sgdpr-info-icon" id="sgdpr-info-icon"></div>
-                  <div class="sgdpr-title sgdpr-title-material" style="padding-left: 5px;">Cookies &amp; Privacy Policy</div>
-                </div>
-                <div class="sgdpr-message"><span><span>We use browser cookies to personalize content and Ads, to
-                      provide social media features and analyse traffic. To use our site, you must agree to our </span><a
-                      class="sgdpr-policy" href="./privacypolicy.html">Privacy Policy.</a></span></div><button class="sgdpr-button sgdpr-button-material"
-                  id="sgdpr-button">
-                  <div class="sgdpr-text" style="padding-right: 5px;">Agree</div>
-                  <div class="sgdpr-yes-icon"></div>
-                </button>
-              </div>
-              <!--end demo-->
+            <div class="demo-item demo-item-material" id="demo-material">
+
             </div>
           </div>
         </div>
@@ -112,7 +59,7 @@
                     <span>We use browser cookies to personalize content and Ads, to provide social media features and analyse traffic. To use our site, you must agree to our </span>
                     <a class="sgdpr-policy" href="./privacypolicy.html">Privacy Policy.</a>
                 </span>
-                <button class="sgdpr-button sgdpr-button-light sgdpr-mobile-button-demo">
+                <button class="sgdpr-mobile-button-demo">
                   <div class="sgdpr-yes-mobile-demo"></div>
                 </button>
               </div>
@@ -317,15 +264,53 @@ const notice = new SimpleGDPR({
                 </td>
                 <td data-label="Description">Determines if the notice box will automatically show when it is instantiated.</td>
               </tr>
+              <tr>
+                  <td data-label="Property" class="hl-prop">id</td>
+                  <td data-label="Default">
+                      <span class="hl-def">{ box: null, button: null }</span>
+                  </td>
+                  <td data-label="Value">
+                      <span class="hl-var">String</span>
+                  </td>
+                  <td data-label="Description">This is a nested object under the property <span class="hl-def">id</span>. If box or button are assigned strings, these will be their id attributes in the DOM. If they are null (default behavior) then the default <span class="hl-var">sgdpr-box</span> and <span class="hl-var">sgdpr-button</span> will be used. This property is only useful if for some reason you have multiple instances of SimpleGDPR.</td>
+                </tr>
               </tbody>
             </table>
           </div>
         </section>
+        <section class="section-methods">
+          <h2 class="section-title">Methods</h2>
+          <p>SimpleGDPR has 6 methods available which allow you to control the notice box.</p>
+          <h3 class="section-subtitle">Open and Close</h3>
+          <p>These will trigger animations (if enabled) and show or close appropriately. Close will set the display to be 'none'. isActive() will return true if its currently open, or false if its closed. </p>
+          <pre><code class="language-javascript">notice.open();
+notice.close();
+notice.isActive();</code></pre>
+          <h3 class="section-subtitle">Set Callback and Content</h3>
+          <p>setCallback provides an interface to change the event listener attached to the button. setContent only takes in HTMLElements and replaces the entire notice box (title, icons, message and button).</p>
+          <pre><code class="language-javascript">notice.setCallback(() => {  
+  notice.close();        
+  Cookies.set('accepted', 'true');   
+});
+
+const replaced = document.createElement('div');
+replaced.innerText = 'Replaced';
+notice.setContent(replaced);</code></pre>
+          <h3 class="section-subtitle">Moving the Box</h3>
+          <p>You can use these methods to move the box. <span class="hl-var">relocate()</span> will move the box to one of the float property positions e.g. <span class="hl-var">'top-right'</span> . <span class="hl-var">appendTo()</span> takes in the id of the parent element, and appends the box to a parent element.</p>
+          <pre><code class="language-javascript">notice.relocate('top-left');
+notice.appendTo('parentContainerId');</code></pre>
+<h3 class="section-subtitle">Destroy</h3>
+<p>To permanently destroy the SimpleGDPR notice box and remove from the DOM.</p>
+<pre><code class="language-javascript">notice.destroy();</code></pre>
+      </section>
       </div>
     </main>
   </div>
-
   <script src="prism.js"></script>
+  <script src="index.js"></script>
+  <script>
+  </script>
 </body>
 
 </html>

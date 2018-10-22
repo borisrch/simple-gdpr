@@ -82,9 +82,11 @@ section {
 }
 
 .demo-item {
-  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
   height: 250px;
-  border-radius: 5px;
 }
 
 .demo-item-light {
@@ -140,4 +142,48 @@ section {
 
 .options-table {
   line-height: 1.6;
+}
+
+/*
+  Forced Mobile Mode.
+*/
+
+.sgdpr-mobile-box-demo {
+  margin: auto;
+  width: 750px;
+  margin-top: 10px;
+  border: none;
+  box-shadow: none;
+  border-radius: 0px;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  background-color: #509BF5;
+  background-image: none;
+  color: #fff;
+  font-size: 12px;
+}
+
+.sgdpr-mobile-button-demo {
+  padding: 0px;
+  float: none;
+  position: relative;
+  background-color: #509BF5;
+  padding-right: 10px;
+  border: none;
+  outline: none;
+}
+
+.sgdpr-mobile-button-demo:hover {
+  background-color: #509BF5;
+}
+
+.sgdpr-yes-mobile-demo {
+  display: flex;
+  height: 18px;
+  width: 18px;
+}
+
+.sgdpr-yes-mobile-demo, .sgdpr-yes-icon {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0ibm9uZSIgZD0iTTAgMGgyNHYyNEgweiIvPjxwYXRoIGQ9Ik05IDE2LjJMNC44IDEybC0xLjQgMS40TDkgMTkgMjEgN2wtMS40LTEuNEw5IDE2LjJ6IiBmaWxsPSIjZmZmIi8+PC9zdmc+");
 }
