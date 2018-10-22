@@ -11,16 +11,9 @@
   this.SimpleGDPR = function (options) {
 
     this.active = true;
-    var self = this;
 
-    var defaultMessage = document.createElement('span');
-    defaultMessage.innerText = 'We use browser cookies to personalize content and Ads, to provide social media features and analyse traffic. To use our site, you must agree to our ';
-    var defaultPolicy = document.createElement('a');
-    defaultPolicy.innerText = 'Privacy Policy.';
-    defaultPolicy.className = 'sgdpr-policy';
-    var defaultGroup = document.createElement('span');
-    defaultGroup.appendChild(defaultMessage);
-    defaultGroup.appendChild(defaultPolicy);
+    var self = this;
+    var defaultGroup = buildDefaultMessage.call(this);
 
     var defaults = {
       title: 'Cookies & Privacy Policy',
@@ -41,10 +34,6 @@
     build.call(this);
   }
 
-  SimpleGDPR.prototype.init = function () {
-    
-  }
-
   SimpleGDPR.prototype.isActive = function () {
     return this.active;
   }
@@ -58,8 +47,7 @@
         b.style.display = 'none';
         b.classList.remove('sgdpr-slideout');
       }, 500);
-    } 
-    else if (this.opts.animation === 'fade' || this.opts.animation === true) {
+    } else if (this.opts.animation === 'fade' || this.opts.animation === true) {
       b.classList.add('sgdpr-fadeout');
       setTimeout(function () {
         b.style.display = 'none';
@@ -78,13 +66,12 @@
       setTimeout(function () {
         b.classList.remove('sgdpr-slidein');
       }, 500);
-    } 
-    else if (this.opts.animation === 'fade' || this.opts.animation === true) {
+    } else if (this.opts.animation === 'fade' || this.opts.animation === true) {
       b.classList.add('sgdpr-fadein');
       setTimeout(function () {
         b.classList.remove('sgdpr-fadein');
       }, 500);
-    } 
+    }
     this.active = true;
   }
 
@@ -111,14 +98,41 @@
       if (typeof f === 'function') {
         b.removeEventListener('click', this.opts.callback);
         b.addEventListener('click', f);
-      } 
-      else {
+      } else {
         console.warn('setCallback() must receive a function.');
       }
-    } 
-    else {
+    } else {
       console.warn('setCallback() button not found. This function will not work if setContent() was called.');
     }
+  }
+
+  SimpleGDPR.prototype.relocate = function (f) {
+    document.addEventListener("DOMContentLoaded", function () {
+      var box = document.getElementById('sgdpr-box');
+      box.classList.remove('sgdpr-bottom-right', 'sgdpr-bottom-left', 'sgdpr-top-right', 'sgdpr-top-left');
+      floatHandler.call(this, box, f);
+    });
+  }
+
+  SimpleGDPR.prototype.appendTo = function (el) {
+    document.addEventListener("DOMContentLoaded", function () {
+      var box = document.getElementById('sgdpr-box');
+      box.classList.remove('sgdpr-bottom-right', 'sgdpr-bottom-left', 'sgdpr-top-right', 'sgdpr-top-left');
+      var parent = document.getElementById(el);
+      parent.appendChild(box);
+    })
+  }
+
+  function buildDefaultMessage() {
+    var message = document.createElement('span');
+    message.innerText = 'We use browser cookies to personalize content and Ads, to provide social media features and analyse traffic. To use our site, you must agree to our ';
+    var policy = document.createElement('a');
+    policy.innerText = 'Privacy Policy.';
+    policy.className = 'sgdpr-policy';
+    var group = document.createElement('span');
+    group.appendChild(message);
+    group.appendChild(policy);
+    return group;
   }
 
   function build() {
@@ -157,10 +171,9 @@
               if (els[i].classList.contains('sgdpr-policy')) {
                 if (typeof this.opts.link === 'string') {
                   els[i].href = this.opts.link;
-                }
-                else if (typeof this.opts.link === 'function') {
+                } else if (typeof this.opts.link === 'function') {
                   els[i].addEventListener('click', this.opts.link);
-                } 
+                }
               }
             }
           }
@@ -168,7 +181,7 @@
           console.warn('SimpleGDPR: You can only pass Strings or Functions into the link property.');
         }
       }
-    } 
+    }
 
     var button = document.createElement('button');
     button.className = 'sgdpr-button';
@@ -200,6 +213,7 @@
     box.appendChild(button);
 
     styleHandler.call(this, box, title, msg, button, text);
+    floatHandler.call(this, box, this.opts.float);
 
     if (this.opts.icons) {
       var yes = document.createElement('div');
@@ -207,10 +221,8 @@
       button.appendChild(yes);
     }
 
-    document.body.prepend(box);
 
     button.addEventListener('click', this.opts.callback);
-
   }
 
   function styleHandler(box, title, msg, button, text) {
@@ -244,25 +256,32 @@
       default:
         break;
     }
-    switch (float) {
-      case 'bottom-right':
-        box.classList.add('sgdpr-bottom-right');
-        break;
-      case 'bottom-left':
-        box.classList.add('sgdpr-bottom-left');
-        break;
-      case 'top-right':
-        box.classList.add('sgdpr-top-right');
-        break;
-      case 'top-left':
-        box.classList.add('sgdpr-top-left');
-        break;
-      case 'top-center':
-        break;
-      case 'bottom-center':
-        break;
-      case 'center':
-        break;
+  }
+
+  function floatHandler(box, f) {
+
+    // Add support for top-center, bottom-center, and center;
+    if (f === 'bottom-right') {
+      box.classList.add('sgdpr-bottom-right');
+      document.body.prepend(box);
+    } else if (f === 'bottom-left') {
+      box.classList.add('sgdpr-bottom-left');
+      document.body.prepend(box);
+    } else if (f === 'top-right') {
+      box.classList.add('sgdpr-top-right');
+      document.body.prepend(box);
+    } else if (f === 'top-left') {
+      box.classList.add('sgdpr-top-left');
+      document.body.prepend(box);
+    } else {
+      document.addEventListener("DOMContentLoaded", function () {
+        try {
+          var el = document.getElementById(f);
+          el.appendChild(box);
+        } catch (e) {
+          console.error('Element with id ' + f + ' not found. ' + f, e.message);
+        }
+      });
     }
   }
 

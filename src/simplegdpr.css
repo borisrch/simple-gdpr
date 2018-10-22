@@ -3,11 +3,11 @@
   width: 320px;
   font-size: 15px;
   padding: 0.8em;
-  position: fixed;
   background-color: #f9f9fa;
   color: #324B64;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   text-align: left;
+  display: inline-block;
 }
 
 .sgdpr-bottom-right {
@@ -15,6 +15,7 @@
   right: 0;
   margin-right: 30px;
   margin-bottom: 30px;
+  position: fixed;
 }
 
 .sgdpr-bottom-left {
@@ -22,6 +23,7 @@
   left: 0;
   margin-left: 30px;
   margin-bottom: 30px;
+  position: fixed;
 }
 
 .sgdpr-top-right {
@@ -29,6 +31,7 @@
   right: 0;
   margin-right: 30px;
   margin-top: 30px;
+  position: fixed;
 }
 
 .sgdpr-top-left {
@@ -36,6 +39,7 @@
   left: 0;
   margin-left: 30px;
   margin-top: 30px;
+  position: fixed;
 }
 
 .sgdpr-title {
