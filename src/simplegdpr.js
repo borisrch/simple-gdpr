@@ -27,6 +27,10 @@
         self.close();
       },
       openOnInit: true,
+      id: {
+        button: null,
+        box: null,
+      },
     }
     // Need to add Polyfill for IE11.
     this.opts = extend({}, defaults, options);
@@ -39,7 +43,14 @@
   }
 
   SimpleGDPR.prototype.close = function () {
-    var b = document.getElementById('sgdpr-box');
+    
+    var b;
+
+    if (this.opts.id.box !== null && typeof this.opts.id.box === 'string') {
+      b = document.getElementById(this.opts.id.box);
+    } else {
+      b = document.getElementById('sgdpr-box');
+    }
 
     if (this.opts.animation === 'slide') {
       b.classList.add('sgdpr-slideout');
@@ -58,7 +69,15 @@
   }
 
   SimpleGDPR.prototype.open = function () {
-    var b = document.getElementById('sgdpr-box');
+
+    var b;
+
+    if (this.opts.id.box !== null && typeof this.opts.id.box === 'string') {
+      b = document.getElementById(this.opts.id.box);
+    } else {
+      b = document.getElementById('sgdpr-box');
+    }
+
     b.style.display = '';
 
     if (this.opts.animation === 'slide') {
@@ -138,7 +157,12 @@
   function build() {
     var box = document.createElement('div');
     box.className = 'sgdpr-box';
-    box.id = 'sgdpr-box';
+
+    if (this.opts.id.box !== null && typeof this.opts.id.box === 'string') {
+      box.id = this.opts.id.box;
+    } else {
+      box.id = 'sgdpr-box';
+    }
 
     if (this.opts.openOnInit === false) {
       box.style.display = 'none';
@@ -185,7 +209,12 @@
 
     var button = document.createElement('button');
     button.className = 'sgdpr-button';
-    button.id = 'sgdpr-button';
+
+    if (this.opts.id.button !== null && typeof this.opts.id.button === 'string') {
+      button.id = this.opts.id.button;
+    } else {
+      button.id = 'sgdpr-button';
+    }
 
     // add option
     var text = document.createElement('div');
@@ -220,7 +249,6 @@
       yes.className = 'sgdpr-yes-icon';
       button.appendChild(yes);
     }
-
 
     button.addEventListener('click', this.opts.callback);
   }
