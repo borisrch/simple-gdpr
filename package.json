@@ -1,8 +1,8 @@
 {
   "name": "simple-gdpr",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "lightweight and simple gdpr solution",
-  "main": "dist/simplegdpr.min.js",
+  "main": "dist/simplegdpr.es.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,11 +20,17 @@
   "author": "Boris Chan",
   "license": "MIT",
   "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "babel-preset-es2015-rollup": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^6.0.0",
     "gulp-clean-css": "^3.10.0",
     "gulp-minify-css": "^1.2.4",
     "gulp-rename": "^1.4.0",
-    "gulp-uglify": "^3.0.1"
+    "gulp-uglify": "^3.0.1",
+    "rollup": "^0.66.6",
+    "rollup-plugin-babel": "^4.0.3",
+    "rollup-plugin-uglify": "^6.0.0"
   }
 }
