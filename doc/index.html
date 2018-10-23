@@ -5,17 +5,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:400,700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:400,700|Nunito+Sans:400,600|Open+Sans:400,700|Roboto:400,700" rel="stylesheet">
   <link href="normalize.css" rel="stylesheet"/>
   <link href="prism.css" rel="stylesheet"/>
   <link href="table.min.css" rel="stylesheet"/>
   <link rel="stylesheet" href="site.css">
 
-  <script src="../dist/simplegdpr.min.js"></script>
+  <!-- <script src="../dist/simplegdpr.min.js"></script> -->
+
+  <script src="https://unpkg.com/simple-gdpr@1.1.1/dist/simplegdpr.min.js"></script>
+
   <link rel="stylesheet" href="sgdpr-site.css">
 
   <title>Document</title>
@@ -25,6 +24,9 @@
   <div id="app">
     <header>
       <div class="header-container">
+        <div class="header-icon">
+            <img src="https://twemoji.maxcdn.com/2/svg/2705.svg" alt="" class="twa-4x">
+        </div>
         <div class="header-title">SimpleGDPR.js</div>
         <div class="header-desc">
           A lightweight and easy to use GDPR consent plugin.
@@ -80,35 +82,85 @@
               <p>In addition, the plugin comes with a predefined consent message, which can be easily changed. The built-in themes were created with UX in mind, with the goal of being clear, intuitive, and pretty.</p>   
           </div>
         </section>
-        <section class="section-started">
-          <h2 class="section-title">Getting Started</h2>
-          <h3 class="section-subtitle">Option 1: CDN</h3>
-          <p>Include both the script and css from the CDN in your HTML document before your own scripts:</p>
-          <pre><code class="language-markup">&lt;script src="https://unpkg.com/xxxx/dist/xxxx.js">&lt;/script>
-&lt;link href="https://unpkg.com/xxxx/dist/xxxx.css" rel="stylesheet"></code></pre>
-          <h3 class="section-subtitle">Option 2: Package Manager</h3>
-          <p>To install using npm:</p>
-          <pre><code class="language-none">npm install simplegdpr</code></pre>
-          <p>Then you can import the SimpleGDPR module and css.</p>
-          <pre><code class="language-javascript">import SimpleGDPR from 'simplegdpr';
-import 'simplegdpr/dist/simplegdpr.css';</code></pre>
+        <section class="section-contents">
+          <span class="section-icon">
+            <img src="https://twemoji.maxcdn.com/2/svg/1f5fa.svg" alt="" class="twa-3x">
+          </span>
+          <h2 class="section-title">Table of Contents</h2>
+          <ol>
+            <li> 
+              <div class="contents">
+                  <img class="twa-lg" draggable="0" alt="📦" src="https://twemoji.maxcdn.com/2/svg/1f4e6.svg">
+                  <a class="contents-item" href="#section-started">Getting Started</a>
+              </div>
+            </li>
+            <li>
+              <div class="contents">
+                  <img class="twa-lg" draggable="0" alt="📦" src="https://twemoji.maxcdn.com/2/svg/1f4bb.svg">
+                  <a class="contents-item" href="#sections-usage">Basic Usage</a>
+              </div>
+            </li>
+            <li>
+                <div class="contents">
+                    <img class="twa-lg" draggable="0" alt="📦" src="https://twemoji.maxcdn.com/2/svg/1f4ac.svg">
+                    <a class="contents-item" href="#section-message">Custom Messages</a>
+                </div>
+            </li>
+            <li>
+              <div class="contents">
+                <img class="twa-lg" draggable="0" alt="📦" src="https://twemoji.maxcdn.com/2/svg/2699.svg">
+                <a class="contents-item" href="#section-options">Options</a>
+              </div>
+            </li>
+            <li>
+              <div class="contents">
+                <img class="twa-lg" draggable="0" alt="📦" src="https://twemoji.maxcdn.com/2/svg/1f4a1.svg">
+                <a class="contents-item" href="#section-methods">Methods</a>
+              </div>
+              <div class="contents">
+                  <img class="twa-lg" draggable="0" alt="📦" src="https://twemoji.maxcdn.com/2/svg/1f4a1.svg">
+                  <a class="contents-item" href="#section-methods">Compatibil</a>
+                </div>
+            </li>
+          </ol>
         </section>
-        <section class="section-usage">
+        <section class="section-started" id="section-started">
+            <span class="section-icon">
+                <img src="https://twemoji.maxcdn.com/2/svg/1f4e6.svg" alt="" class="twa-3x">
+              </span>
+          <h2 class="section-title">Getting Started</h2>
+          <h3 class="section-subtitle">
+              <img src="https://twemoji.maxcdn.com/2/svg/1f30f.svg" alt="" class="twa-lg"/>
+            CDN</h3>
+          <p>Include both the script and css from the CDN in your HTML document before your own scripts:</p>
+          <pre><code class="language-markup">&lt;script src="https://unpkg.com/simple-gdpr@1.1.1/dist/simplegdpr.min.js">&lt;/script>
+&lt;link href="https://unpkg.com/simple-gdpr@1.1.1/dist/simplegdpr.min.css" rel="stylesheet"></code></pre>
+        </section>
+        <section class="section-usage" id="section-usage">
+            <span class="section-icon">
+                <img src="https://twemoji.maxcdn.com/2/svg/1f4bb.svg" alt="" class="twa-3x">
+              </span>
           <h2 class="section-title">Basic Usage</h3>
           <p>Here’s how easy it is to get started. This is the default SimpleGDPR when given no options.</p>
             <div class="usage-container">
               <pre><code class="language-javascript">const notice = new SimpleGDPR();</code></pre>
+              <div class="usage-item" id="usage1">
 
+              </div>
             </div>
-          <p>You can easily customize this behaviour by passing options (see options). In this example, we will make the notice open automatically on init. We can also execute our cookie/analytics logic and close the notice when the button is pressed. </p>
+          <p>You can easily customize this behaviour by passing options (see options). In this example, we will execute our cookie/analytics logic, display an alert, and finally close the notice when the button is pressed. </p>
             <div class="usage-container">
               <pre><code class="language-javascript">const notice = new SimpleGDPR({
   callback: () => {
     notice.close();
+    alert('Hi!');
     analytics.start();
   },
   openOnInit: true,
 });</code></pre>
+            <div class="usage-item" id="usage2">
+
+            </div>
             </div>
           <p>In this example, we will change the title text and provide a link (or function) to our privacy policy details.</p>
           <div class="usage-container">
@@ -116,6 +168,9 @@ import 'simplegdpr/dist/simplegdpr.css';</code></pre>
   title: 'This website uses cookies.',
   link: './privacypolicy.html',
 });</code></pre>
+<div class="usage-item" id="usage3">
+
+</div>
           </div>
           <p>If we want to change up the styles and themes, we can also pass it in the options.</p>
           <div class="usage-container">
@@ -124,18 +179,54 @@ import 'simplegdpr/dist/simplegdpr.css';</code></pre>
   icons: false,
   animation: 'slide',
   float: 'bottom-left',
-});</code></pre></div>
+});</code></pre>
+        <div class="usage-item" id="usage4"></div>
+        </div>
+        <p>For more detailed description on all the options, see the options section. Here's an example of all the possible options.</p>
+        <div class="usage-container">
+         <pre class="usage-code"><code class="language-javascript">const notice = new SimpleGDPR({
+  title: 'Cookies and Cream',
+  message: 'Do you want some?',
+  link: null,
+  icons: true,
+  theme: 'dark',
+  animation: 'slide',
+  float: 'bottom-right',
+  callback: () => {
+    notice.close();
+    setTimeout(() => { notice.open }, 1000);
+  },
+  openOnInit: true,
+  id: {
+    box: 'my-box-id',
+    button: 'my-button-id',
+  },
+});</code></pre>
+        <div class="usage-item" id="usage-5">
+
+        </div>
+        </div>
+
         </section>
-        <section class="section-message">
+        <section class="section-message" id="section-message">
+            <span class="section-icon">
+                <img src="https://twemoji.maxcdn.com/2/svg/1f4ac.svg" alt="" class="twa-3x">
+              </span>
           <h2 class="section-title">Custom Messages</h2>
-          <h3 class="section-subtitle">Method 1: Via Options
+          <h3 class="section-subtitle">
+            <img src="https://twemoji.maxcdn.com/2/svg/2699.svg" alt="" class="twa-lg">
+            Method 1: Via Options
           </h3>
           <p>Passing a string into the message property in the options will replace the contents of the default message with your message.
             If you use this method, you will not be able to use the link property. Method 2 can be used if you wish to retain this functionality.
           </p>
 
-          <h3 class="section-subtitle">Method 2 (Recommended): DOM Element</h3>
-          <p>It may be better to pass in your own element for more control. The link property will look for any elements that contains the class sgdpr-policy, and add a href attribute with your link or a click listener if a function was passed.</p>
+          <h3 class="section-subtitle">
+              <img src="https://twemoji.maxcdn.com/2/svg/1f6e0.svg" alt="" class="twa-lg">
+            Method 2 (Recommended): DOM Element</h3>
+          <p>It may be better to pass in your own element for more control. The link property will look for any elements that contains the class sgdpr-policy, and add a href attribute with your link or a click listener if a function was passed.
+            <b>Note:</b> you can just add your own event listeners when constructing your elements, and using the link property is not required at all.
+          </p>
           <div class="usage-container">
             <pre><code class="language-javascript">const group = document.createElement('div');
 const message = document.createElement('span');
@@ -155,10 +246,15 @@ const notice = new SimpleGDPR({
   }
 });
             </code></pre>
-            
+            <div class="usage-item" id="message1">
+
+            </div>
           </div>
         </section>
-        <section class="section-options">
+        <section class="section-options" id="section-options">
+          <span class="section-icon">
+              <img src="https://twemoji.maxcdn.com/2/svg/2699.svg" alt="" class="twa-3x">
+          </span>
           <h2 class="section-title">Options</h2>
           <div class="table-container">
             <table class="ui celled table options-table">
@@ -278,15 +374,22 @@ const notice = new SimpleGDPR({
             </table>
           </div>
         </section>
-        <section class="section-methods">
+        <section class="section-methods" id="section-methods">
+            <span class="section-icon">
+                <img src="https://twemoji.maxcdn.com/2/svg/1f4a1.svg" alt="" class="twa-3x">
+            </span>
           <h2 class="section-title">Methods</h2>
-          <p>SimpleGDPR has 6 methods available which allow you to control the notice box.</p>
-          <h3 class="section-subtitle">Open and Close</h3>
+          <p>SimpleGDPR has 8 methods available which allow you to control the notice box.</p>
+          <h3 class="section-subtitle">
+              <img src="https://twemoji.maxcdn.com/2/svg/1f6a6.svg" alt="" class="twa-lg">
+            Open and Close</h3>
           <p>These will trigger animations (if enabled) and show or close appropriately. Close will set the display to be 'none'. isActive() will return true if its currently open, or false if its closed. </p>
           <pre><code class="language-javascript">notice.open();
 notice.close();
 notice.isActive();</code></pre>
-          <h3 class="section-subtitle">Set Callback and Content</h3>
+          <h3 class="section-subtitle">
+              <img src="https://twemoji.maxcdn.com/2/svg/1f4ab.svg" alt="" class="twa-lg">
+            Set Callback and Content</h3>
           <p>setCallback provides an interface to change the event listener attached to the button. setContent only takes in HTMLElements and replaces the entire notice box (title, icons, message and button).</p>
           <pre><code class="language-javascript">notice.setCallback(() => {  
   notice.close();        
@@ -296,11 +399,15 @@ notice.isActive();</code></pre>
 const replaced = document.createElement('div');
 replaced.innerText = 'Replaced';
 notice.setContent(replaced);</code></pre>
-          <h3 class="section-subtitle">Moving the Box</h3>
-          <p>You can use these methods to move the box. <span class="hl-var">relocate()</span> will move the box to one of the float property positions e.g. <span class="hl-var">'top-right'</span> . <span class="hl-var">appendTo()</span> takes in the id of the parent element, and appends the box to a parent element.</p>
+          <h3 class="section-subtitle">
+              <img src="https://twemoji.maxcdn.com/2/svg/1f69a.svg" alt="" class="twa-lg">
+            Moving the Box</h3>
+          <p>You can use these methods to move the box. <span class="hl-var">relocate()</span> will move the box to one of the float property positions e.g. <span class="hl-var">'top-right'</span> . <span class="hl-var">appendTo()</span> takes in the id of the parent element, and appends the box to the parent element.</p>
           <pre><code class="language-javascript">notice.relocate('top-left');
 notice.appendTo('parentContainerId');</code></pre>
-<h3 class="section-subtitle">Destroy</h3>
+<h3 class="section-subtitle">
+    <img src="https://twemoji.maxcdn.com/2/svg/1f6ae.svg" alt="" class="twa-lg">
+  Destroy</h3>
 <p>To permanently destroy the SimpleGDPR notice box and remove from the DOM.</p>
 <pre><code class="language-javascript">notice.destroy();</code></pre>
       </section>
