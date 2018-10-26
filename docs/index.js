@@ -1,3 +1,5 @@
+let a = false;
+
 const demo1 = new SimpleGDPR({
   float: 'demo-light',
   theme: 'light',
@@ -6,7 +8,9 @@ const demo1 = new SimpleGDPR({
     demo1.close();
     setTimeout(() => {
       demo1.open();
-    }, 800); 
+    }, 800);
+    
+    b();
   },
   id: {
     box: 'demo1-box',
@@ -24,6 +28,8 @@ const demo2 = new SimpleGDPR({
     setTimeout(() => {
       demo2.open();
     }, 800); 
+    
+    b();
   },
   id: {
     box: 'demo2-box',
@@ -42,6 +48,8 @@ const demo3 = new SimpleGDPR({
     setTimeout(() => {
       demo3.open();
     }, 800); 
+
+    b();
   },
   id: {
     box: 'demo3-box',
@@ -61,6 +69,8 @@ const demo4 = new SimpleGDPR({
     setTimeout(() => {
       demo4.open();
     }, 800); 
+
+    b();
   },
   id: {
     box: 'demo4-box',
@@ -73,6 +83,10 @@ const usage1 = new SimpleGDPR({
   id: {
     button: 'usage1',
     box: 'usage1',
+  },
+  callback: () => {
+    usage1.close();
+    b();
   }
 });
 
@@ -81,6 +95,8 @@ const usage2 = new SimpleGDPR({
   callback: () => {
     alert('Hi!');
     usage2.close();
+
+    b();
   },
   id: {
     button: 'usage2',
@@ -95,6 +111,11 @@ const usage3 = new SimpleGDPR({
   id: {
     button: 'usage3',
     box: 'usage3',
+  },
+  callback: () => {
+    usage3.close();
+
+    b();
   }
 });
 
@@ -106,6 +127,11 @@ const usage4 = new SimpleGDPR({
   id: {
     button: 'usage4',
     box: 'usage4',
+  },
+  callback: () => {
+    usage4.close();
+    
+    b();
   }
 });
 
@@ -122,6 +148,8 @@ const usage5 = new SimpleGDPR({
     setTimeout(() => {
       usage5.open();
     }, 1000);
+    
+    b();
   },
   openOnInit: true,
   id: {
@@ -147,5 +175,27 @@ group.appendChild(policy);
 const message1 = new SimpleGDPR({
   float:'message1',
   message: group,
+  callback: () => {
+    message1.close();
+
+    b();
+  }
 });
+
+// Google analytics
+
+function gtag(){dataLayer.push(arguments);}
+
+function b() {
+  if (!a) {
+    a = true;
+    console.log('donzo');
+    window.dataLayer = window.dataLayer || [];
+    gtag('js', new Date());
+    gtag('config', 'UA-128204612-1');
+  }
+}
+
+
+
 
