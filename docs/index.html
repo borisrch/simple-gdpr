@@ -9,15 +9,10 @@
   <link href="normalize.css" rel="stylesheet"/>
   <link href="prism.css" rel="stylesheet"/>
   <link href="table.min.css" rel="stylesheet"/>
-  <link rel="stylesheet" href="site.css">
-
-  <!-- <script src="../dist/simplegdpr.min.js"></script> -->
-
-  <script src="https://unpkg.com/simple-gdpr@1.1.1/dist/simplegdpr.min.js"></script>
-
   <link rel="stylesheet" href="sgdpr-site.css">
-
-  <title>Document</title>
+  <script src="https://unpkg.com/simple-gdpr@1.1.1/dist/simplegdpr.min.js"></script>
+  <link rel="stylesheet" href="site.css">
+  <title>SimpleGDPR - Lightweight GDPR Plugin</title>
 </head>
 
 <body>
@@ -29,14 +24,17 @@
         </div>
         <div class="header-title">SimpleGDPR.js</div>
         <div class="header-desc">
-          A lightweight and easy to use GDPR consent plugin.
+          A lightweight and easy-to-use GDPR consent plugin.
+        </div>
+        <div class="header-subtitle">
+
         </div>
       </div>
     </header>
     <main>
       <div class="main-container">   
         <section class="section-demo">
-          <h2 class="section-title">Overview</h2>
+          <h2 class="section-title overview">Overview</h2>
           <div class="demo-container">
           <div class="demo-grid">
             <div class="demo-item demo-item-light" id="demo-light">
@@ -71,7 +69,7 @@
         <section class="section-features">
           <h2 class="section-title">Features</h2>
           <div class="section-text">
-              <p>SimpleGDPR is a lightweight and easy to use plugin for GDPR consent. It features:</p>
+              <p>SimpleGDPR is a lightweight and easy-to-use JS plugin for GDPR consent. It features:</p>
               <ul>
                 <li>Simple API.</li>
                 <li>Built in themes.</li>
@@ -97,7 +95,7 @@
             <li>
               <div class="contents">
                   <img class="twa-lg" draggable="0" alt="📦" src="https://twemoji.maxcdn.com/2/svg/1f4bb.svg">
-                  <a class="contents-item" href="#sections-usage">Basic Usage</a>
+                  <a class="contents-item" href="#section-usage">Basic Usage</a>
               </div>
             </li>
             <li>
@@ -130,11 +128,21 @@
               </span>
           <h2 class="section-title">Getting Started</h2>
           <h3 class="section-subtitle">
-              <img src="https://twemoji.maxcdn.com/2/svg/1f30f.svg" alt="" class="twa-lg"/>
-            CDN</h3>
-          <p>Include both the script and css from the CDN in your HTML document before your own scripts:</p>
-          <pre><code class="language-markup">&lt;script src="https://unpkg.com/simple-gdpr@1.1.1/dist/simplegdpr.min.js">&lt;/script>
-&lt;link href="https://unpkg.com/simple-gdpr@1.1.1/dist/simplegdpr.min.css" rel="stylesheet"></code></pre>
+            <img src="https://twemoji.maxcdn.com/2/svg/1f30f.svg" alt="" class="twa-lg"/>
+            Option 1: CDN</h3>
+          <p>Include both the script and css from the CDN in your HTML document:</p>
+          <pre><code class="language-markup">&lt;script src="https://unpkg.com/simple-gdpr@1.1.4/dist/simplegdpr.umd.js">&lt;/script>
+&lt;link href="https://unpkg.com/simple-gdpr@1.1.4/dist/simplegdpr.min.css" rel="stylesheet"></code></pre>
+            <p>It's recommended to place this at the bottom of your <span class="hl-var">&lt;body&gt;</span> and before your own scripts.</p>
+            <h3 class="section-subtitle">
+              <img src="https://twemoji.maxcdn.com/2/svg/1f4e6.svg" alt="" class="twa-lg"/>
+              Option 2: Package Manager
+            </h3>
+            <pre><code class="language-javascript">npm install simple-gdpr</code></pre>
+            <p>You can then import into your bundle:</p>
+            <pre><code class="language-javascript">import SimpleGDPR from 'simple-gdpr';</code></pre>
+            <p>You will also need to import the css file. e.g. with Rollup or Webpack:</p>
+            <pre><code class="language-javascript">import 'simple-gdpr/dist/simplegdpr.min.css';</code></pre>
         </section>
         <section class="section-usage" id="section-usage">
             <span class="section-icon">
@@ -143,20 +151,20 @@
           <h2 class="section-title">Basic Usage</h3>
           <p>Here’s how easy it is to get started. This is the default SimpleGDPR when given no options.</p>
             <div class="usage-container">
-              <pre><code class="language-javascript">const notice = new SimpleGDPR();</code></pre>
+              <pre class="responsive-code"><code class="language-javascript">const notice = new SimpleGDPR();</code></pre>
               <div class="usage-item" id="usage1">
 
               </div>
             </div>
-          <p>You can easily customize this behaviour by passing options (see options). In this example, we will execute our cookie/analytics logic, display an alert, and finally close the notice when the button is pressed. </p>
+          <p>You can easily customize this behaviour by passing options (see options). In this example, we will close the notice, display an alert, and execute our analytics/cookies logic.
+            we will execute our cookie/analytics logic, display an alert, and finally close the notice when the button is pressed. </p>
             <div class="usage-container">
-              <pre><code class="language-javascript">const notice = new SimpleGDPR({
+              <pre class="responsive-code"><code class="language-javascript">const notice = new SimpleGDPR({
   callback: () => {
     notice.close();
     alert('Hi!');
     analytics.start();
   },
-  openOnInit: true,
 });</code></pre>
             <div class="usage-item" id="usage2">
 
@@ -164,7 +172,7 @@
             </div>
           <p>In this example, we will change the title text and provide a link (or function) to our privacy policy details.</p>
           <div class="usage-container">
-            <pre><code class="language-javascript">const notice = new SimpleGDPR({
+            <pre class="responsive-code"><code class="language-javascript">const notice = new SimpleGDPR({
   title: 'This website uses cookies.',
   link: './privacypolicy.html',
 });</code></pre>
@@ -174,7 +182,7 @@
           </div>
           <p>If we want to change up the styles and themes, we can also pass it in the options.</p>
           <div class="usage-container">
-          <pre><code class="language-javascript">const notice = new SimpleGDPR({
+          <pre class="responsive-code"><code class="language-javascript">const notice = new SimpleGDPR({
   theme: 'modern',
   icons: false,
   animation: 'slide',
@@ -184,7 +192,7 @@
         </div>
         <p>For more detailed description on all the options, see the options section. Here's an example of all the possible options.</p>
         <div class="usage-container">
-         <pre class="usage-code"><code class="language-javascript">const notice = new SimpleGDPR({
+         <pre class="usage-code responsive-code"><code class="language-javascript">const notice = new SimpleGDPR({
   title: 'Cookies and Cream',
   message: 'Do you want some?',
   link: null,
@@ -228,7 +236,7 @@
             <b>Note:</b> you can just add your own event listeners when constructing your elements, and using the link property is not required at all.
           </p>
           <div class="usage-container">
-            <pre><code class="language-javascript">const group = document.createElement('div');
+            <pre class="responsive-code"><code class="language-javascript">const group = document.createElement('div');
 const message = document.createElement('span');
 const policy = document.createElement('span');
 
@@ -384,14 +392,14 @@ const notice = new SimpleGDPR({
               <img src="https://twemoji.maxcdn.com/2/svg/1f6a6.svg" alt="" class="twa-lg">
             Open and Close</h3>
           <p>These will trigger animations (if enabled) and show or close appropriately. Close will set the display to be 'none'. isActive() will return true if its currently open, or false if its closed. </p>
-          <pre><code class="language-javascript">notice.open();
+          <pre class="code-size"><code class="language-javascript">notice.open();
 notice.close();
 notice.isActive();</code></pre>
           <h3 class="section-subtitle">
               <img src="https://twemoji.maxcdn.com/2/svg/1f4ab.svg" alt="" class="twa-lg">
             Set Callback and Content</h3>
           <p>setCallback provides an interface to change the event listener attached to the button. setContent only takes in HTMLElements and replaces the entire notice box (title, icons, message and button).</p>
-          <pre><code class="language-javascript">notice.setCallback(() => {  
+          <pre class="code-size"><code class="language-javascript">notice.setCallback(() => {  
   notice.close();        
   Cookies.set('accepted', 'true');   
 });
@@ -403,13 +411,13 @@ notice.setContent(replaced);</code></pre>
               <img src="https://twemoji.maxcdn.com/2/svg/1f69a.svg" alt="" class="twa-lg">
             Moving the Box</h3>
           <p>You can use these methods to move the box. <span class="hl-var">relocate()</span> will move the box to one of the float property positions e.g. <span class="hl-var">'top-right'</span> . <span class="hl-var">appendTo()</span> takes in the id of the parent element, and appends the box to the parent element.</p>
-          <pre><code class="language-javascript">notice.relocate('top-left');
+          <pre class="code-size"><code class="language-javascript">notice.relocate('top-left');
 notice.appendTo('parentContainerId');</code></pre>
 <h3 class="section-subtitle">
     <img src="https://twemoji.maxcdn.com/2/svg/1f6ae.svg" alt="" class="twa-lg">
   Destroy</h3>
 <p>To permanently destroy the SimpleGDPR notice box and remove from the DOM.</p>
-<pre><code class="language-javascript">notice.destroy();</code></pre>
+<pre class="code-size"><code class="language-javascript">notice.destroy();</code></pre>
       </section>
       </div>
     </main>
