@@ -1,0 +1,5 @@
+{
+  "in": ["site.css"],
+  "out": "site.min.css",
+  "browsers": ["last 3 versions"]
+}

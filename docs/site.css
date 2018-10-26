@@ -1,8 +1,9 @@
 body {
   font-family: 'Nunito Sans',Avenir,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Ubuntu,Cantarell,Helvetica Neue,Helvetica,Arial,sans-serif;
   color: #2d435a;
-  background: rgb(225, 237, 247);
-  background-image: linear-gradient(180deg, rgb(225, 237, 247), rgb(184, 206, 240));
+  background: #b3e5fc;
+  width: 100%;
+  height: 100%;
 }
 
 header {
@@ -48,7 +49,7 @@ main {
   background-color: #fff;
   padding-left: 36px;
   padding-right: 36px;
-  box-shadow: 0 2px 5px 0 rgba(88,88,102,.07);
+  box-shadow: 0 2px 5px 0 rgba(88,88,102,.20);
 }
 
 .section-title {
@@ -259,11 +260,69 @@ section {
 
 .contents-item:hover {
   color: rgb(0, 88, 196);
+  text-decoration: underline;
 }
 
 .section-icon, .header-icon {
   display: flex;
   justify-content: center;
+}
+
+.slideout-menu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 256px;
+  min-height: 100vh;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  z-index: 0;
+  display: none;
+}
+
+.slideout-menu-left {
+  left: 0;
+}
+
+.slideout-menu-right {
+  right: 0;
+}
+
+.slideout-panel {
+  position: relative;
+  z-index: 1;
+  will-change: transform;
+  background-color: #FFF; /* A background-color is required */
+  min-height: 100vh;
+}
+
+.slideout-open,
+.slideout-open body,
+.slideout-open .slideout-panel {
+  overflow: hidden;
+}
+
+.slideout-open .slideout-menu {
+  display: block;
+}
+
+.footer-text {
+  font-size: 14px;
+  text-align: center;
+
+}
+
+.link-icons {
+  font-size: 24px;
+  text-align: center;
+}
+
+ion-icon {
+  margin-bottom: -2px;
+}
+
+footer {
+  padding: 3em 3em 2em 3em;
 }
 
 /* iPads (portrait) ----------- */
