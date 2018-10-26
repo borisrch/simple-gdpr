@@ -2,7 +2,7 @@
 
 ## Documentation
 
-Documentation and demo can be found here: LINK
+[Full documentation and demo can be found here.](https://borisrch.github.io/simple-gdpr/ "SimpleGDPR Documentation")
 
 ## Introduction
 
@@ -15,12 +15,6 @@ SimpleGDPR is a lightweight and easy-to-use GDPR consent plugin. It features:
 
 ## Installation:
 
-### cdn:
-```
-<script src="https://unpkg.com/simple-gdpr@1.1.4/dist/simplegdpr.umd.js"></script>
-
-<link href="https://unpkg.com/simple-gdpr@1.1.4/dist/simplegdpr.min.css" rel="stylesheet"/>
-```
 ### npm:
 ```
 npm install simple-gdpr
@@ -40,4 +34,4 @@ const notice = new SimpleGDPR({
 }
 ```
 
-View the docs for details on all of the options you can supply to customize tooltips to suit your needs.
+[View the docs](https://borisrch.github.io/simple-gdpr/) for details on all of the options you can supply to customize tooltips to suit your needs.
