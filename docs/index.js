@@ -189,7 +189,6 @@ function gtag(){dataLayer.push(arguments);}
 function b() {
   if (!a) {
     a = true;
-    console.log('donzo');
     window.dataLayer = window.dataLayer || [];
     gtag('js', new Date());
     gtag('config', 'UA-128204612-1');
