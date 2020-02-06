@@ -1,9 +1,10 @@
 {
   "name": "simple-gdpr",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "lightweight and simple gdpr solution",
-  "main": "dist/simplegdpr.js",
+  "main": "dist/simplegdpr.es.js",
   "scripts": {
+    "build": "rollup -c",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

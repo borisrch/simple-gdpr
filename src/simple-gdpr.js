@@ -6,6 +6,7 @@ export default function SimpleGDPR (options) {
     title: 'Cookies & Privacy Policy',
     message: defaultGroup,
     link: null,
+    buttonText: 'Agree',
     icons: true,
     theme: 'light',
     animation: 'fade',
@@ -204,7 +205,7 @@ function build() {
   // add option
   var text = document.createElement('div');
   text.className = 'sgdpr-text';
-  text.innerText = 'Agree';
+  text.innerText = this.opts.buttonText;
 
   var mob = document.createElement('div');
   mob.className = 'sgdpr-yes-mobile';

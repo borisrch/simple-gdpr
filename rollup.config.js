@@ -3,25 +3,25 @@ import babel from 'rollup-plugin-babel';
 
 export default [
   {
-    input: 'dev/simple-gdpr.js',
+    input: 'src/simple-gdpr.js',
     output: {
-      file: 'dev/simple-gdpr.umd.js',
+      file: 'dist/simplegdpr.umd.js',
       format: 'umd',
       name: 'SimpleGDPR',
     },
-    plugins:[ 
+    plugins:[
       babel({
         babelrc: false,
         presets: [['@babel/preset-env', { modules: false }]],
         exclude: 'node_modules/**',
       }),
-      uglify() 
+      uglify()
     ]
   },
   {
-    input: 'dev/simple-gdpr.js',
+    input: 'src/simple-gdpr.js',
     output: {
-      file: 'dev/simple-gdpr.es.js',
+      file: 'dist/simplegdpr.es.js',
       format: 'es',
       name: 'SimpleGDPR',
     },
