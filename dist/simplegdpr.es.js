@@ -1,4 +1,4 @@
-export default function SimpleGDPR (options) {
+function SimpleGDPR (options) {
   this.active = true;
   var self = this;
   var defaultGroup = buildDefaultMessage.call(this);
@@ -19,14 +19,14 @@ export default function SimpleGDPR (options) {
       button: null,
       box: null,
     },
-  }
+  };
   this.opts = extend({}, defaults, options);
   build.call(this);
 }
 
 SimpleGDPR.prototype.isActive = function () {
   return this.active;
-}
+};
 
 SimpleGDPR.prototype.close = function () {
   
@@ -52,7 +52,7 @@ SimpleGDPR.prototype.close = function () {
     }, 500);
   }
   this.active = false;
-}
+};
 
 SimpleGDPR.prototype.open = function () {
 
@@ -78,12 +78,12 @@ SimpleGDPR.prototype.open = function () {
     }, 500);
   }
   this.active = true;
-}
+};
 
 SimpleGDPR.prototype.destroy = function () {
   var b = document.getElementById('sgdpr-box');
   b.parentElement.removeChild(b);
-}
+};
 
 SimpleGDPR.prototype.setContent = function (el) {
   var b = document.getElementById('sgdpr-box');
@@ -95,7 +95,7 @@ SimpleGDPR.prototype.setContent = function (el) {
   } else {
     console.warn('SimpleGDPR: setContent can only take HTMLElement objects.');
   }
-}
+};
 
 SimpleGDPR.prototype.setCallback = function (f) {
   var b = document.getElementById('sgdpr-button');
@@ -109,7 +109,7 @@ SimpleGDPR.prototype.setCallback = function (f) {
   } else {
     console.warn('setCallback() button not found. This function will not work if setContent() was called.');
   }
-}
+};
 
 SimpleGDPR.prototype.relocate = function (f) {
   document.addEventListener("DOMContentLoaded", function () {
@@ -117,7 +117,7 @@ SimpleGDPR.prototype.relocate = function (f) {
     box.classList.remove('sgdpr-bottom-right', 'sgdpr-bottom-left', 'sgdpr-top-right', 'sgdpr-top-left');
     floatHandler.call(this, box, f);
   });
-}
+};
 
 SimpleGDPR.prototype.appendTo = function (el) {
   document.addEventListener("DOMContentLoaded", function () {
@@ -125,8 +125,8 @@ SimpleGDPR.prototype.appendTo = function (el) {
     box.classList.remove('sgdpr-bottom-right', 'sgdpr-bottom-left', 'sgdpr-top-right', 'sgdpr-top-left');
     var parent = document.getElementById(el);
     parent.appendChild(box);
-  })
-}
+  });
+};
 
 function buildDefaultMessage() {
   var message = document.createElement('span');
@@ -310,3 +310,5 @@ function extend() {
   }
   return arguments[0];
 }
+
+export default SimpleGDPR;
